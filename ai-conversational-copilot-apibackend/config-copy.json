@@ -1,0 +1,24 @@
+[
+  {
+    "name": "speech",
+    "speech_subscription_key": "",
+    "speech_region": "uksouth",
+    "speech_custom_endpoint_id_optional": "<AZURE SPEECH custom model>",
+    "text_analytics_key": "",
+    "text_analytics_endpoint": "https://lilac.cognitiveservices.azure.com/",
+    "openai_endpoint": "https://lila.openai.azure.com/",
+    "openai_key": "",
+    "openai_deployment_name": "gpt-35-turbo",
+    "aoai_chatgpt_4_endpoint": "https://lila.openai.azure.com/",
+    "aoai_chatgpt_4_key": "",
+    "aoai_chatgpt_4_deployment_name": "gpt-4",
+    "aoai_chatgpt_4_api_version": "2023-03-15-preview",
+    "consmosdb_connection_string": "<COSMOS DB CONNECTION STRING FOR LOGGING - USES NOSQL COSMOS DEPLOYMENT>",
+    "web_port": "8080",
+    "azure_storage_connection_string": "connection string for Azure Storage Account - used for image analysis only",
+    "azure_storage_account_name": "Azure Storage Account Name - used for image analysis only",
+    "azure_storage_container_name": "Azure Storage Container Name - used for image analysis only",
+    "gptv_endpoint": "",
+    "gptv_key": ""
+  }
+]
