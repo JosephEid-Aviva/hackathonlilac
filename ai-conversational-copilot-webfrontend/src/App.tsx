@@ -711,12 +711,18 @@ export default class App extends Component<{}, AppState> {
   Changes with unisure &rarr; <span style={{color:"red"}}>No</span></li>
   <li>Changes with MyMoney &rarr; <span style={{color:"green"}}>Yes</span></li>
 <ul>
-  <li> Customer not registered &rarr; <a href="mailto:janedoe3@gmail.com?subject=Link to MyAviva&body=Go to the following link to sign up to MyAviva: https://www.direct.aviva.co.uk/MyAccount/login ">Send link</a></li>
+  <li> Customer not registered &rarr; <a href="mailto:janedoe3@gmail.com?subject=Link to MyAviva&body=Go to the following link to sign up to MyAviva: https://www.direct.aviva.co.uk/MyAccount/login ">Activate Registration </a></li> 
   <li> Give details on how to go online </li>
-  <li> Vulnerable flag &rarr; <span style={{color:"red"}}>No</span> </li>
+  <li> Vulnerable flag &rarr; <span style={{color:"red"}}>Yes</span> </li>
 </ul>
   
 </ul>
+<h2>
+                        Suggested converations:</h2>
+                        <ul> 
+                          <li>Does the customer wants to service their products digitally ?</li>
+                          <li>Vulnerabiltiy is financial hardship: refer customer: <a href="www.fca.com">FCA</a> , <a href="www.fca.com">MoneyHelper</a> & <a href="www.fca.com">CitizensAdvice</a></li>
+                        </ul>
                         </> })},500)
                       }} />
                   <Pivot aria-label="Language AI insights">
