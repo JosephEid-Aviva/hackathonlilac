@@ -1,5 +1,6 @@
 //App.tsx file content
 import React, { Component, RefObject } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import {
   Dropdown,
   IDropdownOption,
@@ -7,13 +8,10 @@ import {
   DefaultButton,
   TextField,
   Panel,
-  Text,
-  Link,
   Pivot,
   PivotItem,
   Label,
 } from "@fluentui/react";
-import { Container } from "reactstrap";
 import { Toggle } from "@fluentui/react/lib/Toggle";
 import {
   getKeyPhrases,
@@ -329,7 +327,7 @@ export default class App extends Component<{}, AppState> {
 
   render() {
     return (
-      <>
+      <div style={{ fontFamily: "source-sans-pro, sans-serif" }}>
         <Header />
         <div
           style={{
@@ -346,7 +344,7 @@ export default class App extends Component<{}, AppState> {
               backgroundColor: "#c9e0f5",
               marginBottom: 0,
               padding: "0.5rem",
-              textDecoration: "underline #176FC1",
+              textDecoration: "underline #004FB6",
               fontSize: "2rem",
               marginLeft: "1rem",
             }}
@@ -355,7 +353,7 @@ export default class App extends Component<{}, AppState> {
           </h1>
           <p
             style={{
-              color: "#176FC1",
+              color: "#004FB6",
               paddingTop: "1rem",
               marginLeft: "1rem",
             }}
@@ -475,42 +473,54 @@ export default class App extends Component<{}, AppState> {
             >
               Mrs. Jane Doe
             </p>
-            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-              MyAviva status: <span style={{ color: "red" }}>Not Registered</span>
+            <p style={{ marginBlock: "1rem" }}>
+              MyAviva status:{" "}
+              <span style={{ color: "red" }}>Not Registered</span>
             </p>
-            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-              Date of birth: 01/02/1980
-            </p>
-            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+            <p style={{ marginBlock: "1rem" }}>Date of birth: 01/02/1980</p>
+            <p style={{ marginBlock: "1rem" }}>
               Address: 1 Green Street <br /> London <br /> E1 1AA
             </p>
-            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-              Email: janedoe3@gmail.com
-            </p>
-            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+            <p style={{ marginBlock: "1rem" }}>Email: janedoe3@gmail.com</p>
+            <p style={{ marginBlock: "1rem" }}>
               Contact number(s): <br /> 07700 900 900 <br /> 020 1234 5678
             </p>
           </div>
-          <div style={{ width: "60%" }}>
+          <div style={{ width: "60%", boxShadow: "0 0 5px" }}>
             <div
-              style={{ backgroundColor: "#FCCA12" }}
-              className="card text-white mb-3"
+              style={{
+                backgroundColor: "#FFD900",
+                textAlign: "center",
+                boxShadow: "0 0 5px",
+                padding: "1rem",
+              }}
             >
+              <img
+                src="https://static.aviva.io/assets/logo/aviva-logo.svg"
+                decoding="async"
+                alt=""
+              ></img>
               <h3
                 style={{
-                  color: "#176FC1",
-                  paddingLeft: "1rem",
-                  paddingTop: "1rem",
+                  color: "#004FB6",
                 }}
               >
                 Agent Assist
               </h3>
-              <form className="row row-cols-lg-auto g-3 text-white">
-                <div className="col-12">
-                  <div className="button-container">
+              <form>
+                <div>
+                  <div
+                    style={{ justifyContent: "space-between", width: "100%" }}
+                  >
                     <PrimaryButton
                       className="customButtons2"
                       onClick={() => this.sttFromMic()}
+                      style={{
+                        borderRadius: "0.375rem",
+                        width: "auto",
+                        padding: "0.5rem",
+                        backgroundColor: "#004FB6",
+                      }}
                     >
                       Start Conversation
                     </PrimaryButton>
@@ -518,6 +528,11 @@ export default class App extends Component<{}, AppState> {
                     <DefaultButton
                       className="customButtons2"
                       onClick={() => this.stopRecording()}
+                      style={{
+                        borderRadius: "0.375rem",
+                        width: "auto",
+                        padding: "0.5rem",
+                      }}
                     >
                       End Conversation
                     </DefaultButton>
@@ -525,6 +540,12 @@ export default class App extends Component<{}, AppState> {
                     <PrimaryButton
                       className="customButtons2"
                       onClick={this.openSettingsPanel}
+                      style={{
+                        borderRadius: "0.375rem",
+                        width: "auto",
+                        padding: "0.5rem",
+                        backgroundColor: "#004FB6",
+                      }}
                     >
                       Settings
                     </PrimaryButton>
@@ -660,7 +681,10 @@ export default class App extends Component<{}, AppState> {
             )}
 
             {this.state.showTranscriptPanel && (
-              <div style={{padding: "1rem" }} className="transcript-area-container">
+              <div
+                style={{ padding: "0.5rem" }}
+                className="transcript-area-container"
+              >
                 <div>
                   <div className="row">
                     <div className="col-6">
@@ -670,6 +694,7 @@ export default class App extends Component<{}, AppState> {
                             className="form-control"
                             id="transcriptTextarea"
                             rows={10}
+                            style={{ height: "250px", boxShadow: "0 0 5px" }}
                             defaultValue={this.state.displayText}
                             onChange={this.onTranscriptTextareaChange}
                           />
@@ -681,6 +706,7 @@ export default class App extends Component<{}, AppState> {
                               id="piiTextarea"
                               rows={10}
                               defaultValue={this.state.displayPiiText}
+                              style={{ height: "250px", boxShadow: "0 0 5px" }}
                             ></textarea>
                           </PivotItem>
                         )}
@@ -693,95 +719,188 @@ export default class App extends Component<{}, AppState> {
                             className="form-control"
                             id="entitiesTextarea"
                             rows={10}
+                            style={{ height: "250px", boxShadow: "0 0 5px" }}
                             defaultValue={this.state.displayNLPOutput}
                           ></textarea>
                         </PivotItem>
                       </Pivot>
                     </div>
                   </div>
-                  <div className="row">
-                    <PrimaryButton style={{width:"40px", marginLeft:"16px",marginTop:"32px"}} text="Generate Instructions" onClick={async() => { 
-                      this.setState({customInstructions: <p>Loading...</p>})
-                      await setTimeout(()=>{
-                        this.setState({ customInstructions: <>
-                        <h2>
-                        NOTE: Unisure policy is invested in with profits!</h2>
-<ul> 
-  <li>
-  Changes with unisure &rarr; <span style={{color:"red"}}>No</span></li>
-  <li>Changes with MyMoney &rarr; <span style={{color:"green"}}>Yes</span></li>
-<ul>
-  <li> Customer not registered &rarr; <a href="mailto:janedoe3@gmail.com?subject=Link to MyAviva&body=Go to the following link to sign up to MyAviva: https://www.direct.aviva.co.uk/MyAccount/login ">Activate Registration </a></li> 
-  <li> Give details on how to go online </li>
-  <li> Vulnerablility identified &rarr; <span style={{color:"red", textDecoration: "underline"}}> Update Flag </span>  (This will update our marketing and data records)</li>
-</ul>
-  
-</ul>
-<h2>
-                        Suggested converations:</h2>
-                        <ul> 
-                          <li>Does the customer wants to service their products digitally ?</li>
-                          <li>Vulnerabiltiy is financial hardship: refer customer: <a href="www.fca.com">FCA</a> , <a href="www.fca.com">MoneyHelper</a> & <a href="www.fca.com">CitizensAdvice</a></li>
-                        </ul>
-                        </> })},500)
-                      }} />
-                  <Pivot aria-label="Language AI insights">
-                  <PivotItem headerText="Customer Instructions">
-                    {this.state.customInstructions}
-                          {/* <textarea
-                            className="form-control"
-                            id="entitiesTextarea"
-                            rows={10}
-                            defaultValue={this.state.customInstructions}
-                          ></textarea> */}
-                        </PivotItem>
-                        </Pivot>
-                    </div>
-                </div>
-              </div>
-            )}
-
-            {this.state.showPromptPanel && (
-              <div className="prompt-area-container">
-                <div>
-                  <div className="row text-dark">
-                    <div className="col-6">
-                      <label
-                        form="customPromptTextarea"
-                        className="form-label"
-                        style={{ color: "black" }}
-                      >
-                        Prompt engineering to extract custom Business Insights:{" "}
-                      </label>
-                      &emsp; &ensp;
+                  <div style={{ marginTop: "1rem" }}>
+                    <div>
                       <PrimaryButton
+                        style={{
+                          borderRadius: "0.375rem",
+                          backgroundColor: "#004FB6",
+                          width: "auto",
+                        }}
                         className="customButtons2"
                         onClick={() => this.gptCustomPromptCompetion()}
                       >
                         Ask GPT
                       </PrimaryButton>
-                      <textarea
-                        className="form-control"
-                        id="customPromptTextarea"
-                        rows={10}
-                        style={{
-                          color: "black",
-                          borderWidth: "1px",
-                          borderColor: "grey",
-                          borderStyle: "groove",
-                          overflowY: "auto",
-                        }}
-                      ></textarea>
+                      <div className="row text-dark">
+                        <div className="col-6">
+                          <label
+                            form="customPromptTextarea"
+                            className="form-label"
+                            style={{ color: "black", display: "none" }}
+                          >
+                            Prompt engineering to extract custom Business
+                            Insights:{" "}
+                          </label>
+                          &emsp; &ensp;
+                          <textarea
+                            className="form-control"
+                            id="customPromptTextarea"
+                            rows={10}
+                            style={{ height: "250px", boxShadow: "0 0 5px" }}
+                          ></textarea>
+                        </div>
+                        <div className="col-6">
+                          <textarea
+                            className="form-control"
+                            style={{
+                              height: "250px",
+                              boxShadow: "0 0 5px",
+                              marginTop: "22px",
+                            }}
+                            id="entitiesTextarea"
+                            rows={12}
+                            defaultValue={this.state.gptInsightsOutput}
+                          ></textarea>
+                        </div>
+                      </div>
                     </div>
-                    <div className="col-6">
-                      <p></p>
-                      <textarea
-                        className="form-control"
-                        id="entitiesTextarea"
-                        rows={12}
-                        defaultValue={this.state.gptInsightsOutput}
-                      ></textarea>
-                    </div>
+                  </div>
+                  <div className="row">
+                    <PrimaryButton
+                      style={{
+                        width: "auto",
+                        marginLeft: "1rem",
+                        marginTop: "1rem",
+                        marginBottom: 0,
+                        borderRadius: "0.375rem",
+                        backgroundColor: "#004FB6",
+                      }}
+                      text="Generate Instructions"
+                      onClick={async () => {
+                        this.setState({
+                          customInstructions: (
+                            <ClipLoader
+                              color={"#004FB6"}
+                              loading={true}
+                              size={50}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                          ),
+                        });
+                        await setTimeout(() => {
+                          this.setState({
+                            customInstructions: (
+                              <>
+                                <p>
+                                  <span style={{ fontSize: "2rem" }}>
+                                    Vulnerablility identified &rarr;{" "}
+                                  </span>
+                                  <span
+                                    style={{
+                                      color: "red",
+                                      textDecoration: "underline",
+                                      fontSize: "2rem",
+                                    }}
+                                  >
+                                    {" "}
+                                    Update Flag
+                                  </span>{" "}
+                                  (This will update our marketing and data
+                                  records)
+                                </p>
+                                <ul>
+                                  <li>
+                                    Unisure - journey available within MyAviva
+                                    &rarr;{" "}
+                                    <span style={{ color: "red" }}>No</span> -
+                                    due to policy being with profits
+                                  </li>
+                                  <li>
+                                    MyMoney - journey available within MyAviva
+                                    &rarr;{" "}
+                                    <span style={{ color: "green" }}>Yes</span>
+                                  </li>
+                                  <ul>
+                                    <li>
+                                      {" "}
+                                      Customer not registered &rarr;{" "}
+                                      <PrimaryButton
+                                        className="customButtons2"
+                                        onClick={() => this.sttFromMic()}
+                                        style={{
+                                          borderRadius: "0.375rem",
+                                          width: "auto",
+                                          padding: "0.5rem",
+                                          backgroundColor: "#004FB6",
+                                        }}
+                                      >
+                                        Activate Registration
+                                      </PrimaryButton>
+                                    </li>
+                                    <li>
+                                      Provide online guidance &rarr;{" "}
+                                      <PrimaryButton
+                                        className="customButtons2"
+                                        onClick={() => this.sttFromMic()}
+                                        style={{
+                                          borderRadius: "0.375rem",
+                                          width: "auto",
+                                          padding: "0.5rem",
+                                          backgroundColor: "#004FB6",
+                                        }}
+                                      >
+                                        Trigger how-to guide in MyAviva message
+                                        centre
+                                      </PrimaryButton>
+                                    </li>
+                                  </ul>
+                                </ul>
+                                <h2>Suggested converations:</h2>
+                                <ul>
+                                  <li>
+                                    Does the customer wants to service their
+                                    products digitally ?
+                                  </li>
+                                  <li>
+                                    Vulnerabiltiy is financial hardship: refer
+                                    customer: <a href="www.fca.com">FCA</a> ,{" "}
+                                    <a href="www.fca.com">MoneyHelper</a> &{" "}
+                                    <a href="www.fca.com">CitizensAdvice</a>
+                                  </li>
+                                </ul>
+                              </>
+                            ),
+                          });
+                        }, 500);
+                      }}
+                    />
+                    <Pivot aria-label="Language AI insights">
+                      <PivotItem headerText="Customer Instructions">
+                        <div
+                          style={{
+                            height: "250px",
+                            boxShadow: "0 0 5px",
+                            borderWidth: "1px",
+                            borderColor: "#dee2e6",
+                            borderStyle: "solid",
+                            overflow: "auto",
+                            borderRadius: "0.375rem",
+                            padding: "0.5rem",
+                          }}
+                        >
+                          {this.state.customInstructions}
+                        </div>
+                      </PivotItem>
+                    </Pivot>
                   </div>
                 </div>
               </div>
@@ -869,7 +988,7 @@ export default class App extends Component<{}, AppState> {
             )}
           </div>
         </div>
-      </>
+      </div>
     );
   } //end of render method
 } //end of App class
