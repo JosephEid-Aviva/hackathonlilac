@@ -64,7 +64,7 @@ interface AppState {
   showPromptPanel: boolean;
   showTranscriptPanel: boolean;
   showPIIRedactedTranscript: boolean;
-  customInstructions: string;
+  customInstructions: React.ReactElement;
 }
 
 export default class App extends Component<{}, AppState> {
@@ -78,7 +78,7 @@ export default class App extends Component<{}, AppState> {
       displayText:
         "Speak to your microphone or copy/paste conversation transcript here",
       displayNLPOutput: "",
-      customInstructions: "",
+      customInstructions: <></>,
       displayKeyPhrases: "",
       displayPiiText: "",
       gptInsightsOutput: "",
@@ -660,7 +660,7 @@ export default class App extends Component<{}, AppState> {
             )}
 
             {this.state.showTranscriptPanel && (
-              <div className="transcript-area-container">
+              <div style={{padding: "1rem" }} className="transcript-area-container">
                 <div>
                   <div className="row">
                     <div className="col-6">
@@ -700,15 +700,34 @@ export default class App extends Component<{}, AppState> {
                     </div>
                   </div>
                   <div className="row">
-                    <PrimaryButton style={{width:"40px", marginLeft:"16px",marginTop:"32px"}} text="Generate Instructions" onClick={() => this.setState({ customInstructions: "NOTE: Unisure policy is invested in with profits! \n Changes with unisure -> no \n Changes with Mymoney -> yes " })} />
+                    <PrimaryButton style={{width:"40px", marginLeft:"16px",marginTop:"32px"}} text="Generate Instructions" onClick={async() => { 
+                      this.setState({customInstructions: <p>Loading...</p>})
+                      await setTimeout(()=>{
+                        this.setState({ customInstructions: <>
+                        <h2>
+                        NOTE: Unisure policy is invested in with profits!</h2>
+<ul> 
+  <li>
+  Changes with unisure &rarr; no</li>
+  <li>Changes with Mymoney &rarr; yes</li>
+<ul>
+  <li> Customer not Registered &rarr; send link </li>
+  <li> Give details on how to go online </li>
+  <li> Vulnerable flag &rarr; no </li>
+</ul>
+  
+</ul>
+                        </> })},500)
+                      }} />
                   <Pivot aria-label="Language AI insights">
                   <PivotItem headerText="Customer Instructions">
-                          <textarea
+                    {this.state.customInstructions}
+                          {/* <textarea
                             className="form-control"
                             id="entitiesTextarea"
                             rows={10}
                             defaultValue={this.state.customInstructions}
-                          ></textarea>
+                          ></textarea> */}
                         </PivotItem>
                         </Pivot>
                     </div>
