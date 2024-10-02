@@ -713,7 +713,7 @@ export default class App extends Component<{}, AppState> {
 <ul>
   <li> Customer not registered &rarr; <a href="mailto:janedoe3@gmail.com?subject=Link to MyAviva&body=Go to the following link to sign up to MyAviva: https://www.direct.aviva.co.uk/MyAccount/login ">Activate Registration </a></li> 
   <li> Give details on how to go online </li>
-  <li> Vulnerable flag &rarr; <span style={{color:"red"}}>Yes</span> </li>
+  <li> Vulnerablility identified &rarr; <span style={{color:"red", textDecoration: "underline"}}> Update Flag </span>  (This will update our marketing and data records)</li>
 </ul>
   
 </ul>
