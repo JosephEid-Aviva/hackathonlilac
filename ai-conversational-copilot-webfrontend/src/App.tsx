@@ -708,12 +708,12 @@ export default class App extends Component<{}, AppState> {
                         NOTE: Unisure policy is invested in with profits!</h2>
 <ul> 
   <li>
-  Changes with unisure &rarr; no</li>
-  <li>Changes with Mymoney &rarr; yes</li>
+  Changes with unisure &rarr; <span style={{color:"red"}}>No</span></li>
+  <li>Changes with MyMoney &rarr; <span style={{color:"green"}}>Yes</span></li>
 <ul>
-  <li> Customer not Registered &rarr; send link </li>
+  <li> Customer not registered &rarr; <a href="mailto:janedoe3@gmail.com?subject=Link to MyAviva&body=Go to the following link to sign up to MyAviva: https://www.direct.aviva.co.uk/MyAccount/login ">Send link</a></li>
   <li> Give details on how to go online </li>
-  <li> Vulnerable flag &rarr; no </li>
+  <li> Vulnerable flag &rarr; <span style={{color:"red"}}>No</span> </li>
 </ul>
   
 </ul>
