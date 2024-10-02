@@ -64,6 +64,7 @@ interface AppState {
   showPromptPanel: boolean;
   showTranscriptPanel: boolean;
   showPIIRedactedTranscript: boolean;
+  customInstructions: string;
 }
 
 export default class App extends Component<{}, AppState> {
@@ -77,6 +78,7 @@ export default class App extends Component<{}, AppState> {
       displayText:
         "Speak to your microphone or copy/paste conversation transcript here",
       displayNLPOutput: "",
+      customInstructions: "",
       displayKeyPhrases: "",
       displayPiiText: "",
       gptInsightsOutput: "",
@@ -474,7 +476,7 @@ export default class App extends Component<{}, AppState> {
               Mrs. Jane Doe
             </p>
             <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-              MyAviva status: <span style={{ color: "green" }}>Registered</span>
+              MyAviva status: <span style={{ color: "red" }}>Not Registered</span>
             </p>
             <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
               Date of birth: 01/02/1980
@@ -697,6 +699,19 @@ export default class App extends Component<{}, AppState> {
                       </Pivot>
                     </div>
                   </div>
+                  <div className="row">
+                    <PrimaryButton style={{width:"40px", marginLeft:"16px",marginTop:"32px"}} text="Generate Instructions" onClick={() => this.setState({ customInstructions: "NOTE: Unisure policy is invested in with profits! \n Changes with unisure -> no \n Changes with Mymoney -> yes " })} />
+                  <Pivot aria-label="Language AI insights">
+                  <PivotItem headerText="Customer Instructions">
+                          <textarea
+                            className="form-control"
+                            id="entitiesTextarea"
+                            rows={10}
+                            defaultValue={this.state.customInstructions}
+                          ></textarea>
+                        </PivotItem>
+                        </Pivot>
+                    </div>
                 </div>
               </div>
             )}
