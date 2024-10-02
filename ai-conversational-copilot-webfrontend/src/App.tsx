@@ -329,11 +329,167 @@ export default class App extends Component<{}, AppState> {
     return (
       <>
         <Header />
+        <div
+          style={{
+            height: "3rem",
+            backgroundColor: "#c9e0f5",
+            display: "flex",
+          }}
+        >
+          <p style={{ paddingTop: "1rem", paddingLeft: "1rem" }}>
+            Customers in this conversation:
+          </p>
+          <h1
+            style={{
+              backgroundColor: "#c9e0f5",
+              marginBottom: 0,
+              padding: "0.5rem",
+              textDecoration: "underline #176FC1",
+              fontSize: "2rem",
+              marginLeft: "1rem",
+            }}
+          >
+            Mrs. Jane Doe
+          </h1>
+          <p
+            style={{
+              color: "#176FC1",
+              paddingTop: "1rem",
+              marginLeft: "1rem",
+            }}
+          >
+            Add customer
+          </p>
+        </div>
+        <div
+          style={{
+            height: "3rem",
+            backgroundColor: "#585b75",
+            display: "flex",
+          }}
+        >
+          <p
+            style={{
+              paddingInline: "1rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            Contact history
+          </p>
+          <p
+            style={{
+              paddingInline: "0.5rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            |
+          </p>
+          <p
+            style={{
+              paddingInline: "1rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            MyAviva account manager
+          </p>
+          <p
+            style={{
+              paddingInline: "0.5rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            |
+          </p>
+          <p
+            style={{
+              paddingInline: "1rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            Alerts
+          </p>
+          <p
+            style={{
+              paddingInline: "0.5rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            |
+          </p>
+          <p
+            style={{
+              paddingInline: "1rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            Complaint
+          </p>
+          <p
+            style={{
+              paddingInline: "0.5rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            |
+          </p>
+          <p
+            style={{
+              paddingInline: "1rem",
+              color: "white",
+              paddingTop: "0.75rem",
+              fontWeight: "700",
+            }}
+          >
+            Pension Wise
+          </p>
+        </div>
         <div style={{ display: "flex" }}>
-          <div style={{ width: "50%" }}>
-            <p>Hello</p>
+          <div style={{ width: "5%", backgroundColor: "lightgray" }}></div>
+          <div
+            style={{ width: "35%", paddingLeft: "1rem", overflow: "scroll" }}
+          >
+            <p
+              style={{
+                fontSize: "2rem",
+                paddingTop: "2rem",
+                paddingBottom: "2rem",
+              }}
+            >
+              Mrs. Jane Doe
+            </p>
+            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+              MyAviva status: <span style={{ color: "green" }}>Registered</span>
+            </p>
+            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+              Date of birth: 01/02/1980
+            </p>
+            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+              Address: 1 Green Street <br /> London <br /> E1 1AA
+            </p>
+            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+              Email: janedoe3@gmail.com
+            </p>
+            <p style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+              Contact number(s): <br /> 07700 900 900 <br /> 020 1234 5678
+            </p>
           </div>
-          <div style={{ width: "50%" }}>
+          <div style={{ width: "60%" }}>
             <div
               style={{ backgroundColor: "#FCCA12" }}
               className="card text-white mb-3"

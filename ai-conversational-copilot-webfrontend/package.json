@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.17.0",
+    "@chakra-ui/react": "^2.9.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@fluentui/react": "^8.111.1",
     "@fluentui/react-components": "^9.30.4",
     "@fluentui/react-hooks": "^8.6.29",
@@ -25,6 +28,7 @@
     "axios": "^1.5.0",
     "bootstrap": "^5.3.1",
     "dompurify": "^3.0.5",
+    "framer-motion": "^11.9.0",
     "microsoft-cognitiveservices-speech-sdk": "^1.31.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
